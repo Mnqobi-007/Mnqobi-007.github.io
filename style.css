@@ -315,7 +315,7 @@ footer a:hover {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  /* Stacks image and text vertically, for smaller phones */
+  /* Stack image and text vertically */
   .row {
     flex-direction: column;
     align-items: center;
