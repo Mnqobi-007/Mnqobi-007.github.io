@@ -295,6 +295,42 @@ main section {
   background: #ff8c42;
 }
 
+/* SUPPORT SECTION */
+#support {
+  padding: 80px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.support-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.support-text {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.paypal-button {
+  background-color: #ff8c42;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.paypal-button:hover {
+  background-color: #df5e0e;
+  transform: scale(1.05);
+}
+
 /* FOOTER */
 footer {
   text-align: center;
