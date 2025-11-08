@@ -9,126 +9,105 @@
 <body>
   <!-- Navigation -->
   <nav>
-    <ul>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul id="nav-links">
       <li><a href="#s1">Home</a></li>
-      <li><a href="#s2">About</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#s3">Projects</a></li>
       <li><a href="#support">Support</a></li>
       <li><a href="#s4">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Background images -->
+  <!-- Background slideshow -->
   <div class="backgrounds">
-    <img src="images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg" class="active" alt="Background 1">
-    <img src="images/altumcode-PNbDkQ2DDgM-unsplash.jpg" alt="Background 2">
-    <img src="images/pexels-goumbik-574071.jpg" alt="Background 3">
-    <img src="images/gold-glitter-ocean-wave-with-watercolor-texture-background.jpg" alt="Background 4">
+    <img src="images/fotis-fotopoulos-DuHKoV44prg-unsplash.jpg" class="active" alt="">
+    <img src="images/altumcode-PNbDkQ2DDgM-unsplash.jpg" alt="">
+    <img src="images/pexels-goumbik-574071.jpg" alt="">
+    <img src="images/gold-glitter-ocean-wave-with-watercolor-texture-background.jpg" alt="">
   </div>
 
   <main>
     <!-- Home Section -->
-    <section id="s1">
+    <section id="s1" class="hero">
       <div class="hero-text">
-        <h1 class="blur-fade">Hi, I'm Awande Zungu</h1>
-        <h2 class="fade-up">Computer Science Student</h2>
+        <h1>Hi, I'm Awande Zungu</h1>
+        <h2>Computer Science Student</h2>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="s2">
-      <div id="about">
-        <div class="row">
-          <div class="about-col1">
-            <img src="images/IMG-20240104-007.jpg" alt="My profile photo">
-          </div>
-          <div class="about-col2">
-            <h1 class="sub-title">About Me</h1>
-            <p>
-              I am a Computer Science Student at the University Of KwaZulu-Natal, South Africa.
-              I enjoy turning complex problems into simple, beautiful and intuitive designs.
-              My main goal is to make software that is useful for all of society.
-
-              I make sure that the result is always pleasing for the eyes and is simple.
-              I aim to make simple ideas thought of as dreams into reality.
-            </p>
-            <a href="https://drive.google.com/file/d/1DPT1X_UDFnhA11bu3m0NwcfATWNFJ3D5/view?usp=sharing" download class="btn-download">Download My Resume</a>
-          </div>
+    <section id="about" class="section">
+      <div class="about-container">
+        <img src="images/IMG-20240104-007.jpg" alt="Profile photo" class="about-img">
+        <div class="about-text">
+          <h1>About Me</h1>
+          <p>
+            I am a Computer Science student at the University of KwaZulu-Natal, South Africa.
+            I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+            My main goal is to make software that is useful for all of society.
+          </p>
+          <a href="https://drive.google.com/file/d/1DPT1X_UDFnhA11bu3m0NwcfATWNFJ3D5/view?usp=sharing" target="_blank" class="btn">Download Resume</a>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="s3">
-      <div class="projects-container">
-        <h1 class="section-title">My Projects</h1>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h2>Property Management App + Webpage</h2>
-            <p>Desktop app made with Pascal and a webpage with HTML, CSS, JS.</p>
-          </div>
-          <div class="project-card">
-            <h2>Login Webpage</h2>
-            <p>Login page made with HTML, CSS and Python backend (simulated).</p>
-          </div>
-          <div class="project-card extra-project">
-            <h2>Hand detection app</h2>
-            <p>Hand detection application made using HTML and JavaScript(TensorFlow)</p>
-          </div>
-          <div class="project-card extra-project">
-            <h2>Rock, Paper, Scissors game</h2>
-            <p>A basic Rock, Paper, Scissors game using Python</p>
-          </div>
+    <section id="s3" class="section">
+      <h1>My Projects</h1>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h2>Property Management App + Webpage</h2>
+          <p>Desktop app made with Pascal and a webpage with HTML, CSS, JS.</p>
         </div>
-        <button id="see-more">See More Projects</button>
+        <div class="project-card">
+          <h2>Login Webpage</h2>
+          <p>Login page made with HTML, CSS and Python backend (simulated).</p>
+        </div>
+        <div class="project-card extra-project">
+          <h2>Hand Detection App</h2>
+          <p>Made using HTML, JavaScript, and TensorFlow.</p>
+        </div>
+        <div class="project-card extra-project">
+          <h2>Rock, Paper, Scissors Game</h2>
+          <p>A basic Python game.</p>
+        </div>
       </div>
+      <button id="see-more" class="btn">See More Projects</button>
     </section>
 
     <!-- Support Section -->
-    <section id="support">
-      <div class="support-container">
-        <h1 class="section-title">Support My Work</h1>
-        <p class="support-text">
-          If you like my projects or want to support my journey as a Computer Science student, you can donate via PayPal.  
-          Every contribution helps me build more open-source and creative projects!
-        </p>
-        <a href="https://paypal.me/MnqobiZungu451/10" target="_blank" class="paypal-link">
-          <button class="paypal-button">☕ Support My Work</button>
-        </a>
-      </div>
+    <section id="support" class="section">
+      <h1>Support My Work</h1>
+      <p>
+        If you like my projects or want to support my journey as a Computer Science student,
+        you can donate via PayPal.
+      </p>
+      <a href="https://paypal.me/MnqobiZungu451/10" target="_blank" class="btn paypal">☕ Support My Work</a>
     </section>
 
-
-
     <!-- Contact Section -->
-    <section id="s4">
-      <div class="contact-container">
-        <h1 class="section-title">Contact Me</h1>
-        <div class="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:zunguamz@outlook.com">zunguamz@outlook.com</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+27724828613">+27 72 482 8613</a></p>
-          <p><strong>Location:</strong> Durban, South Africa</p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mnqoh-zungu-5bb024350" target="_blank">View Profile</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/Mnqobi-007" target="_blank">View Repos</a></p>
-        </div>
-        <form class="contact-form" onsubmit="return fakeSubmit(event)">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-        <p id="form-msg" style="color: lightgreen; margin-top: 10px;"></p>
+    <section id="s4" class="section contact">
+      <h1>Contact Me</h1>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:zunguamz@outlook.com">zunguamz@outlook.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+27724828613">+27 72 482 8613</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mnqoh-zungu-5bb024350" target="_blank">View Profile</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/Mnqobi-007" target="_blank">View Repos</a></p>
       </div>
+
+      <form class="contact-form" onsubmit="return fakeSubmit(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p id="form-msg"></p>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Awande Zungu. All rights reserved.</p>
-    <div>
-      <a href="www.linkedin.com/in/mnqoh-zungu-5bb024350">LinkedIn</a> |
-      <a href="https://github.com/Mnqobi-007">GitHub</a> |
-      <a href="mailto:zunguamz@outlook.com">Email</a>
-    </div>
   </footer>
 
   <script src="script.js"></script>
