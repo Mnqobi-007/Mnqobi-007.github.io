@@ -17,15 +17,16 @@
   const navLinks = $$('.nav__link');
   const backToTop = $('#back-to-top');
   const contactForm = $('#contact-form');
-  const formSuccess = $('#form-success');
-  const sendAnother = $('#send-another');
-  const cursorDot = $('#cursor-dot');
-  const cursorOutline = $('#cursor-outline');
   const particlesCanvas = $('#particles-canvas');
 
   // ==================== CUSTOM CURSOR ====================
   function initCursor() {
     if (window.matchMedia('(hover: none)').matches) return;
+
+    const cursorDot = $('#cursor-dot');
+    const cursorOutline = $('#cursor-outline');
+    
+    if (!cursorDot || !cursorOutline) return;
 
     let mouseX = 0, mouseY = 0;
     let outlineX = 0, outlineY = 0;
@@ -65,6 +66,8 @@
 
   // ==================== PARTICLE BACKGROUND ====================
   function initParticles() {
+    if (!particlesCanvas) return;
+    
     const ctx = particlesCanvas.getContext('2d');
     let particles = [];
     const particleCount = Math.min(60, Math.floor(window.innerWidth / 25));
@@ -132,6 +135,7 @@
     }
 
     function animate() {
+      if (!ctx) return;
       ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
 
       particles.forEach(p => {
@@ -148,8 +152,8 @@
 
   // ==================== HEADER SCROLL EFFECT ====================
   function initHeaderScroll() {
-    let lastScroll = 0;
-
+    if (!header) return;
+    
     function onScroll() {
       const scrollY = window.scrollY;
 
@@ -160,13 +164,13 @@
       }
 
       // Back to top button
-      if (scrollY > 500) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
+      if (backToTop) {
+        if (scrollY > 500) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
       }
-
-      lastScroll = scrollY;
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -174,6 +178,8 @@
 
   // ==================== MOBILE MENU ====================
   function initMobileMenu() {
+    if (!navToggle || !mobileMenu) return;
+    
     navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('active');
       mobileMenu.classList.toggle('active');
@@ -192,6 +198,7 @@
   // ==================== ACTIVE NAV LINK ON SCROLL ====================
   function initActiveNav() {
     const sections = $$('section[id]');
+    if (!sections.length) return;
 
     function onScroll() {
       const scrollY = window.scrollY + 100;
@@ -228,9 +235,12 @@
   function initSmoothScroll() {
     $$('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#home' || href === '#') return;
+        
+        const target = document.querySelector(href);
         if (target) {
+          e.preventDefault();
           target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -239,14 +249,17 @@
       });
     });
 
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (backToTop) {
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
   }
 
   // ==================== SCROLL REVEAL ANIMATIONS ====================
   function initScrollReveal() {
     const reveals = $$('.reveal-up, .reveal-left, .reveal-right');
+    if (!reveals.length) return;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -266,6 +279,7 @@
   // ==================== COUNTER ANIMATION ====================
   function initCounters() {
     const counters = $$('.about__stat-number');
+    if (!counters.length) return;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -295,54 +309,17 @@
     counters.forEach(counter => observer.observe(counter));
   }
 
-  // ==================== CONTACT FORM ====================
-  function initContactForm() {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Simulate form submission
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalContent = submitBtn.innerHTML;
-
-      submitBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"/>
-        </svg>
-        <span>Sending...</span>
-      `;
-      submitBtn.disabled = true;
-
-      // Add spinning animation
-      const style = document.createElement('style');
-      style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-      document.head.appendChild(style);
-
-      setTimeout(() => {
-        contactForm.style.display = 'none';
-        formSuccess.classList.add('active');
-        contactForm.reset();
-        submitBtn.innerHTML = originalContent;
-        submitBtn.disabled = false;
-        style.remove();
-      }, 1500);
-    });
-
-    sendAnother.addEventListener('click', () => {
-      formSuccess.classList.remove('active');
-      contactForm.style.display = 'flex';
-    });
-  }
-
   // ==================== TYPEWRITER EFFECT FOR SUBTITLE ====================
   function initTypewriter() {
-    const subtitle = $('.hero__subtitle');
-    if (!subtitle) return;
+    const subtitleSpan = $('#typewriter-subtitle');
+    if (!subtitleSpan) return;
 
     const words = [
-      'Computer Science Student',
-      'Aspiring Full-Stack Developer',
-      'Problem Solver',
-      'UI/UX Enthusiast'
+      'Spring Boot Developer',
+      'Full-Stack Engineer', 
+      'Hanno Rund Award Winner',
+      'CS Student @ UKZN',
+      'Problem Solver'
     ];
     let wordIndex = 0;
     let charIndex = 0;
@@ -361,7 +338,7 @@
 
       if (!isDeleting) {
         charIndex++;
-        subtitle.innerHTML = `${currentWord.substring(0, charIndex)}<span class="typewriter-cursor">|</span>`;
+        subtitleSpan.innerHTML = `${currentWord.substring(0, charIndex)}<span class="typewriter-cursor">|</span>`;
 
         if (charIndex === currentWord.length) {
           isPaused = true;
@@ -372,7 +349,7 @@
         setTimeout(type, 60 + Math.random() * 40);
       } else {
         charIndex--;
-        subtitle.innerHTML = `${currentWord.substring(0, charIndex)}<span class="typewriter-cursor">|</span>`;
+        subtitleSpan.innerHTML = `${currentWord.substring(0, charIndex)}<span class="typewriter-cursor">|</span>`;
 
         if (charIndex === 0) {
           isDeleting = false;
@@ -386,27 +363,31 @@
     }
 
     // Add cursor style
-    const cursorStyle = document.createElement('style');
-    cursorStyle.textContent = `
-      .typewriter-cursor {
-        color: #14b8a6;
-        font-weight: 300;
-        animation: blink 0.7s step-end infinite;
-        margin-left: 2px;
-      }
-      @keyframes blink {
-        50% { opacity: 0; }
-      }
-    `;
-    document.head.appendChild(cursorStyle);
+    if (!document.querySelector('#typewriter-styles')) {
+      const cursorStyle = document.createElement('style');
+      cursorStyle.id = 'typewriter-styles';
+      cursorStyle.textContent = `
+        .typewriter-cursor {
+          color: #14b8a6;
+          font-weight: 300;
+          animation: blink 0.7s step-end infinite;
+          margin-left: 2px;
+        }
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+      `;
+      document.head.appendChild(cursorStyle);
+    }
 
     // Start after a delay
-    setTimeout(type, 1500);
+    setTimeout(type, 500);
   }
 
   // ==================== TILT EFFECT ON PROJECT CARDS ====================
   function initTiltEffect() {
     const cards = $$('.project-card');
+    if (!cards.length) return;
 
     cards.forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -428,6 +409,46 @@
     });
   }
 
+  // ==================== FORM SUBMISSION HANDLER (Formspree) ====================
+  // Formspree handles submission automatically via action attribute
+  // This adds a loading state and success message handling
+  function initFormHandler() {
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async (e) => {
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (!submitBtn) return;
+      
+      const originalContent = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
+          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"/>
+        </svg>
+        <span>Sending...</span>
+      `;
+      submitBtn.disabled = true;
+      
+      // Add spinning animation
+      if (!document.querySelector('#spinner-style')) {
+        const spinStyle = document.createElement('style');
+        spinStyle.id = 'spinner-style';
+        spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+        document.head.appendChild(spinStyle);
+      }
+      
+      // Formspree will handle the actual submission
+      // The loading state will reset when the page redirects or after timeout
+      setTimeout(() => {
+        if (submitBtn.disabled) {
+          submitBtn.innerHTML = originalContent;
+          submitBtn.disabled = false;
+        }
+      }, 5000);
+    });
+  }
+
   // ==================== INITIALIZE ====================
   function init() {
     initCursor();
@@ -438,9 +459,9 @@
     initSmoothScroll();
     initScrollReveal();
     initCounters();
-    initContactForm();
     initTypewriter();
     initTiltEffect();
+    initFormHandler();
   }
 
   // Run when DOM is ready
