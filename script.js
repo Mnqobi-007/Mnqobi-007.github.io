@@ -174,6 +174,8 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    // Call once to set initial state
+    onScroll();
   }
 
   // ==================== MOBILE MENU ====================
@@ -229,14 +231,19 @@
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    // Call once to set initial active state
+    onScroll();
   }
 
   // ==================== SMOOTH SCROLL ====================
   function initSmoothScroll() {
-    $$('a[href^="#"]').forEach(anchor => {
+    const allLinks = $$('a[href^="#"]');
+    
+    allLinks.forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href === '#' || href === '#home' || href === '#') return;
+        // Skip empty or home-only links
+        if (href === '#' || href === '#home' || href === '#/') return;
         
         const target = document.querySelector(href);
         if (target) {
@@ -288,8 +295,7 @@
           const target = parseInt(counter.dataset.count);
           let current = 0;
           const increment = target / 40;
-          const duration = 1500;
-          const stepTime = duration / 40;
+          const stepTime = 1500 / 40;
 
           const timer = setInterval(() => {
             current += increment;
@@ -309,7 +315,7 @@
     counters.forEach(counter => observer.observe(counter));
   }
 
-  // ==================== TYPEWRITER EFFECT FOR SUBTITLE ====================
+  // ==================== TYPEWRITER EFFECT ====================
   function initTypewriter() {
     const subtitleSpan = $('#typewriter-subtitle');
     if (!subtitleSpan) return;
@@ -362,7 +368,7 @@
       }
     }
 
-    // Add cursor style
+    // Add cursor style if not already present
     if (!document.querySelector('#typewriter-styles')) {
       const cursorStyle = document.createElement('style');
       cursorStyle.id = 'typewriter-styles';
@@ -380,7 +386,6 @@
       document.head.appendChild(cursorStyle);
     }
 
-    // Start after a delay
     setTimeout(type, 500);
   }
 
@@ -409,47 +414,7 @@
     });
   }
 
-  // ==================== FORM SUBMISSION HANDLER (Formspree) ====================
-  // Formspree handles submission automatically via action attribute
-  // This adds a loading state and success message handling
-  function initFormHandler() {
-    if (!contactForm) return;
-
-    contactForm.addEventListener('submit', async (e) => {
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      if (!submitBtn) return;
-      
-      const originalContent = submitBtn.innerHTML;
-      
-      // Show loading state
-      submitBtn.innerHTML = `
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="12"/>
-        </svg>
-        <span>Sending...</span>
-      `;
-      submitBtn.disabled = true;
-      
-      // Add spinning animation
-      if (!document.querySelector('#spinner-style')) {
-        const spinStyle = document.createElement('style');
-        spinStyle.id = 'spinner-style';
-        spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-        document.head.appendChild(spinStyle);
-      }
-      
-      // Formspree will handle the actual submission
-      // The loading state will reset when the page redirects or after timeout
-      setTimeout(() => {
-        if (submitBtn.disabled) {
-          submitBtn.innerHTML = originalContent;
-          submitBtn.disabled = false;
-        }
-      }, 5000);
-    });
-  }
-
-  // ==================== INITIALIZE ====================
+  // ==================== INITIALIZE ALL ====================
   function init() {
     initCursor();
     initParticles();
@@ -461,7 +426,6 @@
     initCounters();
     initTypewriter();
     initTiltEffect();
-    initFormHandler();
   }
 
   // Run when DOM is ready
