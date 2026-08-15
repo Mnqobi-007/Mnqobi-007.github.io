@@ -995,6 +995,15 @@ input, textarea {
   color: var(--color-accent-emerald);
 }
 
+.project-card .project-card__footer {
+  pointer-events: none;
+}
+
+.project-card .project-card__footer a,
+.project-card .project-card__footer .project-card__link {
+  pointer-events: auto;
+}
+
 /* ==================== CONTACT SECTION ==================== */
 .contact {
   background: var(--color-bg-secondary);
