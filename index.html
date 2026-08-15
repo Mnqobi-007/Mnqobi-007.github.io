@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Awande Zungu | Spring Boot Developer & CS Student</title>
   <meta name="description" content="Awande Zungu - Computer Science student at UKZN. Hanno Rund Award winner, Spring Boot developer, and COMP100 demonstrator. View my portfolio and projects.">
-  <meta name="keywords" content="Awande Zungu, UKZN, Computer Science, Spring Boot, Java, Full-Stack Developer, Portfolio, LMS">
+  <meta name="keywords" content="Awande Zungu, UKZN, Computer Science, Spring Boot, Java, Full-Stack Developer, Portfolio, LMS, Chatter Web">
   <meta name="author" content="Awande Zungu">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,7 @@
             <span class="tech-chip">Docker</span>
             <span class="tech-chip">PostgreSQL</span>
             <span class="tech-chip">TensorFlow</span>
+            <span class="tech-chip">WebSocket</span>
           </div>
         </div>
       </div>
@@ -144,11 +145,11 @@
             </div>
             <div class="about__stats">
               <div class="about__stat">
-                <span class="about__stat-number" data-count="6">0</span>+
+                <span class="about__stat-number" data-count="8">0</span>+
                 <span class="about__stat-label">Projects</span>
               </div>
               <div class="about__stat">
-                <span class="about__stat-number" data-count="8">0</span>+
+                <span class="about__stat-number" data-count="10">0</span>+
                 <span class="about__stat-label">Technologies</span>
               </div>
               <div class="about__stat">
@@ -224,7 +225,8 @@
           <div class="section__line"></div>
         </div>
         <div class="projects__grid" id="projects-grid">
-          <!-- Project 1 - FEATURED: Spring Boot LMS -->
+
+          <!-- Project 1: StudyGrind LMS - FEATURED -->
           <article class="project-card reveal-up" style="--delay: 0s">
             <div class="project-card__icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -232,7 +234,10 @@
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
             </div>
-            <h3 class="project-card__title">StudyGrind LMS <span style="background: var(--color-accent-glow); font-size: 10px; padding: 2px 8px; border-radius: 20px; margin-left: 8px;">Featured</span></h3>
+            <h3 class="project-card__title">
+              StudyGrind LMS
+              <span class="project-card__featured">Featured</span>
+            </h3>
             <p class="project-card__description">
               Enterprise-grade Learning Management System with JWT authentication, role-based access (Admin/Teacher/Student), 
               PayFast payment integration, Docker containerization, Prometheus monitoring, and Grafana dashboards. 
@@ -246,24 +251,94 @@
               <span>Prometheus</span>
               <span>PostgreSQL</span>
             </div>
-            <div class="project-card__footer" style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="project-card__type">⭐ Full-Stack Enterprise App</span>
-              <a href="https://github.com/Mnqobi-007/StudyGrind---Java" target="_blank" style="color: var(--color-accent-teal); font-size: 13px; display: flex; align-items: center; gap: 4px;">
-                <span>GitHub</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <div class="project-card__footer">
+              <span class="project-card__type">⭐ Full-Stack Enterprise</span>
+              <a href="https://github.com/Mnqobi-007/StudyGrind---Java" target="_blank" class="project-card__link">
+                GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </article>
 
-          <!-- Project 2: Hand Detection App -->
+          <!-- Project 2: TS Consulting - LIVE WEBSITE -->
           <article class="project-card reveal-up" style="--delay: 0.1s">
             <div class="project-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <line x1="3" y1="9" x2="21" y2="9"/>
+                <line x1="9" y1="21" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h3 class="project-card__title">
+              TS Consulting
+              <span class="project-card__featured">Live</span>
+            </h3>
+            <p class="project-card__description">
+              Professional civil engineering consultancy website for Terrain &amp; Structural engineers. 
+              Features township establishment services, project portfolio, team profiles, and contact forms. 
+              Built with vanilla HTML, CSS, and JavaScript with a modern, responsive design.
+            </p>
+            <div class="project-card__tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__type">🌐 Live Website</span>
+              <div style="display: flex; gap: 12px;">
+                <a href="https://ts-consulting-pi.vercel.app" target="_blank" class="project-card__link">
+                  Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/Mnqobi-007/TS-Consulting" target="_blank" class="project-card__link">
+                  GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Chatter Web - REAL-TIME CHAT -->
+          <article class="project-card reveal-up" style="--delay: 0.2s">
+            <div class="project-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <h3 class="project-card__title">Chatter Web</h3>
+            <p class="project-card__description">
+              Real-time chat application with WebSocket support, user authentication, and message history. 
+              Features multiple chat rooms, typing indicators, and read receipts. Built with Spring Boot 
+              for the backend and vanilla JavaScript for the frontend.
+            </p>
+            <div class="project-card__tags">
+              <span>Java 17</span>
+              <span>Spring Boot</span>
+              <span>WebSocket</span>
+              <span>STOMP</span>
+              <span>JavaScript</span>
+            </div>
+            <div class="project-card__footer">
+              <span class="project-card__type">💬 Real-Time Chat</span>
+              <a href="https://github.com/Mnqobi-007/Chatter-Web" target="_blank" class="project-card__link">
+                GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4: Hand Detection App -->
+          <article class="project-card reveal-up" style="--delay: 0.3s">
+            <div class="project-card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
+                <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
+                <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+              </svg>
             </div>
             <h3 class="project-card__title">Hand Detection App</h3>
             <p class="project-card__description">
               Real-time hand tracking and gesture recognition using TensorFlow.js and MediaPipe API. 
-              Processes webcam input to detect hand landmarks and recognize simple gestures for touchless interaction.
+              Processes webcam input to detect hand landmarks and recognize gestures like open hand, 
+              fist, pointing, victory, and rock on. Deployed on Vercel.
             </p>
             <div class="project-card__tags">
               <span>JavaScript</span>
@@ -272,35 +347,55 @@
               <span>HTML5</span>
             </div>
             <div class="project-card__footer">
-              <span class="project-card__type">AI/ML Web App</span>
+              <span class="project-card__type">🤖 AI/ML Web App</span>
+              <div style="display: flex; gap: 12px;">
+                <a href="https://hand-detection-deploy.vercel.app" target="_blank" class="project-card__link">
+                  Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+                <a href="https://github.com/Mnqobi-007/hand-detection-code" target="_blank" class="project-card__link">
+                  GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
             </div>
           </article>
 
-          <!-- Project 3: Voice Recognition -->
-          <article class="project-card reveal-up" style="--delay: 0.2s">
+          <!-- Project 5: Voice Recognition -->
+          <article class="project-card reveal-up" style="--delay: 0.4s">
             <div class="project-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <line x1="12" y1="19" x2="12" y2="23"/>
+                <line x1="8" y1="23" x2="16" y2="23"/>
+              </svg>
             </div>
             <h3 class="project-card__title">Voice Recognition App</h3>
             <p class="project-card__description">
-              Voice-controlled assistant built with Python and speech recognition libraries. 
-              Responds to voice commands for basic tasks like opening websites, telling time, 
-              and answering simple questions.
+              Voice-controlled desktop assistant built with Python and speech recognition libraries. 
+              Responds to voice commands for opening applications (Notepad, Calculator), checking the time, 
+              minimizing windows, and exiting the application with a Tkinter GUI.
             </p>
             <div class="project-card__tags">
               <span>Python</span>
               <span>Speech Recognition</span>
-              <span>PyAudio</span>
+              <span>Tkinter</span>
+              <span>PyAutoGUI</span>
             </div>
             <div class="project-card__footer">
-              <span class="project-card__type">Voice Assistant</span>
+              <span class="project-card__type">🎙️ Voice Assistant</span>
+              <a href="https://github.com/Mnqobi-007/voice-recognition" target="_blank" class="project-card__link">
+                GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
           </article>
 
-          <!-- Project 4: StudyGrind Flask Version -->
-          <article class="project-card reveal-up" style="--delay: 0.3s">
+          <!-- Project 6: StudyGrind Flask -->
+          <article class="project-card reveal-up" style="--delay: 0.5s">
             <div class="project-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
             </div>
             <h3 class="project-card__title">StudyGrind (Flask)</h3>
             <p class="project-card__description">
@@ -315,14 +410,20 @@
               <span>PayFast API</span>
             </div>
             <div class="project-card__footer">
-              <span class="project-card__type">Live Web Platform</span>
+              <span class="project-card__type">🌐 Live Web Platform</span>
+              <a href="https://github.com/Mnqobi-007/StudyGrind---Java" target="_blank" class="project-card__link">
+                GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
             </div>
           </article>
 
-          <!-- Project 5: Login System -->
-          <article class="project-card reveal-up" style="--delay: 0.4s">
+          <!-- Project 7: Secure Login System -->
+          <article class="project-card reveal-up" style="--delay: 0.6s">
             <div class="project-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
             </div>
             <h3 class="project-card__title">Secure Login System</h3>
             <p class="project-card__description">
@@ -335,9 +436,10 @@
               <span>JavaScript</span>
             </div>
             <div class="project-card__footer">
-              <span class="project-card__type">Frontend Auth Demo</span>
+              <span class="project-card__type">🔐 Frontend Auth</span>
             </div>
           </article>
+
         </div>
       </div>
     </section>
